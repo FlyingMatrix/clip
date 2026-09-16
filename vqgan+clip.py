@@ -1,8 +1,8 @@
 """
     VQGAN (Vector Quantized Generative Adversarial Network) + CLIP (Contrastive Language-Image Pre-training)
 
-    The script downloads a PRETRAINED VQGAN checkpoint automatically on first run (ImageNet f16, 16384-codebook — the classic VQGAN+CLIP model). 
-    ~1 GB, cached locally afterwards. Alternative checkpoints are listed in CHECKPOINTS below.
+    The script downloads a PRETRAINED VQGAN checkpoint automatically on first run (ImageNet f16, 16384-codebook — the classic VQGAN+CLIP model), ~1 GB, cached locally afterwards. 
+    Alternative checkpoints are listed in CHECKPOINTS below.
 """
 
 import os
@@ -54,6 +54,9 @@ CKPT_DIR   = "vqgan_checkpoints"
 
 # Straight-through helpers (let gradients flow through argmin/clamp)
 class ReplaceGrad(torch.autograd.Function):
+    """
+        
+    """
     @staticmethod
     def forward(ctx, x_forward, x_backward):
         ctx.shape = x_backward.shape
